@@ -1,0 +1,14 @@
+[settings]
+arch = x86_64
+os = Linux
+compiler = gcc
+compiler.version = 14
+compiler.cppstd = gnu20
+compiler.libcxx = libstdc++11
+build_type = Release
+
+[conf]
+tools.build:compiler_executables = {"c": "gcc-14", "cpp": "g++-14"}
+tools.cmake.cmaketoolchain:generator=Ninja
+tools.system.package_manager:mode = install
+tools.system.package_manager:sudo = True

@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with LLDB",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+        },
+        {
+            "name": "Reverse Debug with LLDB",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "stopOnEntry": false,
+            "reverseDebugging": true
+        },
+        {
+            "type": "lldb",
+            "name": "Connect to rr",
+            "request": "attach",
+            "program": "${command:cmake.launchTargetPath}",
+            "stopOnEntry": false,
+        },
+    ]
+}

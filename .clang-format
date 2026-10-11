@@ -1,0 +1,23 @@
+BasedOnStyle: Google
+IndentWidth: 4
+ColumnLimit: 107
+BreakBeforeBraces: Attach
+PointerAlignment: Left
+AlignAfterOpenBracket: BlockIndent
+AlignConsecutiveAssignments: Consecutive
+AlignOperands: Align
+BreakBinaryOperations: OnePerLine
+BreakBeforeBinaryOperators: All
+
+# Fix constructor initializer list formatting
+BreakConstructorInitializers: BeforeComma
+ConstructorInitializerAllOnOneLineOrOnePerLine: false
+
+# Keep function calls more compact when reasonable
+BinPackArguments: false
+BinPackParameters: false
+
+PenaltyReturnTypeOnItsOwnLine: 100000
+AllowAllConstructorInitializersOnNextLine: true
+AllowAllArgumentsOnNextLine: false
+AllowAllParametersOfDeclarationOnNextLine: false

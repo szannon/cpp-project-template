@@ -1,0 +1,32 @@
+[settings]
+arch = x86_64
+os = Linux
+compiler = clang
+compiler.version = 18
+compiler.cppstd = gnu23
+compiler.libcxx = libstdc++11
+build_type = Debug
+
+
+
+[conf]
+tools.build:compiler_executables     = {"c": "clang-18", "cpp": "clang++-18"}
+tools.cmake.cmaketoolchain:generator = Ninja
+tools.system.package_manager:mode    = install
+tools.system.package_manager:sudo    = True
+tools.build:cxxflags                 = ["-march=native", "-mtune=native", "-fsanitize=address,undefined", "-fno-omit-frame-pointer", "-shared-libasan"]
+tools.build:cflags                   = ["-march=native", "-mtune=native", "-fsanitize=address,undefined", "-fno-omit-frame-pointer", "-shared-libasan"]
+tools.build:sharedlinkflags          = ["-fsanitize=address,undefined", "-shared-libasan", "-Wl,--allow-shlib-undefined", "-Wl,--undefined-version"]
+tools.build:exelinkflags             = ["-fsanitize=address,undefined", "-shared-libasan", "-Wl,--allow-shlib-undefined", "-Wl,--undefined-version"]
+tools.build:install_strip            = False
+tools.build:skip_test                = True
+tools.meson.mesontoolchain:backend   = ninja
+
+
+
+[buildenv]
+LDFLAGS  = -fsanitize=address,undefined -shared-libasan -Wl,--allow-shlib-undefined -Wl,--undefined-version
+CFLAGS   = -march=native -mtune=native -fsanitize=address,undefined -fno-omit-frame-pointer -shared-libasan
+CXXFLAGS = -march=native -mtune=native -fsanitize=address,undefined -fno-omit-frame-pointer -shared-libasan
+
+LSAN_OPTIONS=exitcode=0
