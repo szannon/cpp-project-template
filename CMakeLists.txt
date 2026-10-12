@@ -53,9 +53,14 @@ add_subdirectory(an_exec)
 
 
 
-file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/assets" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
-configure_file(
-    "${CMAKE_BINARY_DIR}/compile_commands.json"
-    "${CMAKE_SOURCE_DIR}/compile_commands.json"
-    COPYONLY
+include(cmake_helpers/project_generation.cmake)
+project_generation(
+    NAME ProjectGeneration
+
+
+    COPY "${CMAKE_BINARY_DIR}/compile_commands.json"
+         "${CMAKE_SOURCE_DIR}"
+
+         "${CMAKE_SOURCE_DIR}/assets"
+         "${CMAKE_BINARY_DIR}"
 )
