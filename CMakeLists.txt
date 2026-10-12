@@ -53,11 +53,9 @@ add_subdirectory(an_exec)
 
 
 
-file(
-    COPY        "${CMAKE_CURRENT_SOURCE_DIR}/assets"
-    DESTINATION "${CMAKE_CURRENT_BINARY_DIR}"
-)
-file(
-    COPY        "${CMAKE_BINARY_DIR}/compile_commands.json"
-    DESTINATION "${CMAKE_SOURCE_DIR}/compile_commands.json"
+file(COPY "${CMAKE_CURRENT_SOURCE_DIR}/assets" DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
+configure_file(
+    "${CMAKE_BINARY_DIR}/compile_commands.json"
+    "${CMAKE_SOURCE_DIR}/compile_commands.json"
+    COPYONLY
 )
