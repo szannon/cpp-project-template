@@ -9,8 +9,6 @@ target_include_directories(a_library PUBLIC
 
 target_sources(a_library PRIVATE
     src/ByteBuffer.cpp
-    src/graphics/Window.cpp
-    src/graphics/vertex.cpp
     src/IDManager.cpp
     src/init.cpp
 )

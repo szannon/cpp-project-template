@@ -10,5 +10,4 @@ target_sources(an_exec PRIVATE
 target_link_libraries(an_exec PRIVATE
     a_library
     fmt::fmt
-    glad::glad
 )

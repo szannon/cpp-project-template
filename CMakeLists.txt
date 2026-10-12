@@ -47,20 +47,14 @@ find_package(Boost)
 find_package(frozen)
 find_package(spdlog)
 
-
 add_subdirectory(a_library)
 add_subdirectory(an_exec)
 
 
 
-include(cmake_helpers/project_generation.cmake)
-project_generation(
-    NAME ProjectGeneration
+file(COPY        "${CMAKE_CURRENT_SOURCE_DIR}/assets"
+     DESTINATION "${CMAKE_CURRENT_BINARY_DIR}")
 
-
-    COPY "${CMAKE_BINARY_DIR}/compile_commands.json"
-         "${CMAKE_SOURCE_DIR}"
-
-         "${CMAKE_SOURCE_DIR}/assets"
-         "${CMAKE_BINARY_DIR}"
-)
+file(GENERATE
+     OUTPUT "${CMAKE_SOURCE_DIR}/compile_commands.json"
+     INPUT  "${CMAKE_BINARY_DIR}/compile_commands.json")
